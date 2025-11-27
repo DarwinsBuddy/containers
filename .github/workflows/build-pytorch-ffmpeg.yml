@@ -2,8 +2,10 @@ name: Build and Push PyTorch FFmpeg Container
 
 on:
   push:
-    branches: [ main ]
-    paths: [ 'pytorch-ffmpeg/**' ]
+    tags:
+      - 'pytorch-ffmpeg-*'
+    paths:
+      - 'pytorch-ffmpeg/**'
 
 env:
   REGISTRY: ghcr.io

@@ -7,6 +7,13 @@ RUN apt-get update && apt-get install -y \
     ffmpeg \
     libnvidia-encode-570 \
     libnvidia-decode-570 \
+    wget \
+    unzip \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
+
+COPY run.sh /run.sh
+RUN chmod +x /run.sh
+
+ENTRYPOINT ["/run.sh"]
