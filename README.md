@@ -23,10 +23,11 @@ CUDA-enabled PyTorch container with Jupyter Lab for interactive development and 
 Use the build script to build and publish containers:
 
 ```bash
-./build.sh build          # Build only
-./build.sh publish        # Publish only  
-./build.sh build publish  # Build and publish
-./build.sh build --tag v1.0.0  # Custom tag
+./build.sh pytorch-ffmpeg build          # Build pytorch-ffmpeg
+./build.sh pytorch-jupyter build         # Build pytorch-jupyter
+./build.sh pytorch-ffmpeg publish        # Publish pytorch-ffmpeg
+./build.sh pytorch-jupyter build publish # Build and publish pytorch-jupyter
+./build.sh pytorch-ffmpeg build --tag v1.0.0  # Custom tag
 ```
 
 ## CI/CD
