@@ -1,0 +1,42 @@
+name: Build and Push PyTorch Jupyter Container
+
+on:
+  push:
+    tags:
+      - 'pytorch-jupyter-*'
+    paths:
+      - 'pytorch-jupyter/**'
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: darwinsbuddy/containers/pytorch-jupyter
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Log in to Container Registry
+      uses: docker/login-action@v3
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Extract version from tag
+      id: version
+      run: echo "version=${GITHUB_REF#refs/tags/pytorch-jupyter-}" >> $GITHUB_OUTPUT
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v5
+      with:
+        context: ./pytorch-jupyter
+        push: true
+        tags: |
+          ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.version }}

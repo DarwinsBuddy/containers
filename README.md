@@ -11,6 +11,13 @@ PyTorch container with FFmpeg and NVIDIA GPU acceleration support for video proc
 - **Use case**: Converting image sequences to videos with GPU acceleration
 - **Documentation**: [pytorch-ffmpeg/README.md](pytorch-ffmpeg/README.md)
 
+### pytorch-jupyter
+CUDA-enabled PyTorch container with Jupyter Lab for interactive development and experimentation.
+
+- **Image**: `ghcr.io/darwinsbuddy/containers/pytorch-jupyter:latest`
+- **Use case**: Interactive PyTorch development with GPU acceleration
+- **Documentation**: [pytorch-jupyter/README.md](pytorch-jupyter/README.md)
+
 ## Building
 
 Use the build script to build and publish containers:
