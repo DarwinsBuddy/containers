@@ -16,4 +16,4 @@ WORKDIR /workspace
 
 EXPOSE 8888
 
-CMD ["jupyter", "lab", "--ip=127.0.0.1", "--port=8888", "--no-browser", "--allow-root", "--NotebookApp.token=''", "--NotebookApp.password=''"]
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--ServerApp.token=", "--ServerApp.password=", "--ServerApp.iopub_msg_rate_limit=10000", "--ServerApp.rate_limit_window=3.0"]
