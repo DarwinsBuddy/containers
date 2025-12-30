@@ -6,6 +6,7 @@ CUDA-enabled PyTorch container with Jupyter Lab for interactive development and 
 
 - PyTorch 2.9.0 with CUDA 12.6 support
 - Jupyter Lab pre-installed
+- opencv & ffmpeg pre-installed
 - GPU acceleration ready
 - No authentication required (for development use)
 
