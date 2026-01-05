@@ -10,3 +10,5 @@ jupyter==1.1.1
 jupyterlab==4.5.0
 ipywidgets==8.1.8
 matplotlib==3.10.8
+jupyter-bbox-widget==0.6.0
+anywidget==0.9.21
