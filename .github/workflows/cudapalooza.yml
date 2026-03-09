@@ -1,14 +1,14 @@
-name: Build and Push PyTorch Jupyter Container
+name: Build and Push CUDApalooza Container
 
-# Build on tag push only. Tag format: pytorch-jupyter-<version> (e.g. pytorch-jupyter-1.0.0)
+# Build on tag push only. Tag format: cudapalooza-<version> (e.g. cudapalooza-1.0.0)
 on:
   push:
     tags:
-      - 'pytorch-jupyter-*'
+      - 'cudapalooza-*'
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: darwinsbuddy/containers/pytorch-jupyter
+  IMAGE_NAME: darwinsbuddy/containers/cudapalooza
 
 jobs:
   build:
@@ -29,12 +29,12 @@ jobs:
 
     - name: Extract version from tag
       id: version
-      run: echo "version=${GITHUB_REF#refs/tags/pytorch-jupyter-}" >> $GITHUB_OUTPUT
+      run: echo "version=${GITHUB_REF#refs/tags/cudapalooza-}" >> $GITHUB_OUTPUT
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
       with:
-        context: ./pytorch-jupyter
+        context: ./cudapalooza
         push: true
         tags: |
           ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest

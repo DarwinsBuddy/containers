@@ -8,7 +8,7 @@ DO_PUBLISH=false
 
 while [[ $# -gt 0 ]]; do
     case $1 in
-        pytorch-ffmpeg|pytorch-jupyter)
+        pytorch-ffmpeg|pytorch-jupyter|cudapalooza)
             CONTAINER="$1"
             shift
             ;;
@@ -25,19 +25,19 @@ while [[ $# -gt 0 ]]; do
             shift 2
             ;;
         *)
-            echo "Usage: $0 <pytorch-ffmpeg|pytorch-jupyter> [build] [publish] [--tag TAG]"
+            echo "Usage: $0 <pytorch-ffmpeg|pytorch-jupyter|cudapalooza> [build] [publish] [--tag TAG]"
             exit 1
             ;;
     esac
 done
 
 if [[ -z "$CONTAINER" ]]; then
-    echo "Usage: $0 <pytorch-ffmpeg|pytorch-jupyter> [build] [publish] [--tag TAG]"
+    echo "Usage: $0 <pytorch-ffmpeg|pytorch-jupyter|cudapalooza> [build] [publish] [--tag TAG]"
     exit 1
 fi
 
 if [[ "$DO_BUILD" == false && "$DO_PUBLISH" == false ]]; then
-    echo "Usage: $0 <pytorch-ffmpeg|pytorch-jupyter> [build] [publish] [--tag TAG]"
+    echo "Usage: $0 <pytorch-ffmpeg|pytorch-jupyter|cudapalooza> [build] [publish] [--tag TAG]"
     exit 1
 fi
 

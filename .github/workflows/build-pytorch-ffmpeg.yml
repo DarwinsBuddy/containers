@@ -1,11 +1,10 @@
 name: Build and Push PyTorch FFmpeg Container
 
+# Build on tag push only. Tag format: pytorch-ffmpeg-<version> (e.g. pytorch-ffmpeg-1.0.0)
 on:
   push:
     tags:
       - 'pytorch-ffmpeg-*'
-    paths:
-      - 'pytorch-ffmpeg/**'
 
 env:
   REGISTRY: ghcr.io
